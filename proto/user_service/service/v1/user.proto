@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package user_service.service.v1;
+
+import "google/api/annotations.proto";
+import "user_service/model/v1/user.proto";
+
+option go_package = "grpc-server/gen/go/user_service/service/v1;proto_user_service";
+//option go_package = "github.com"
+
+service UserService{
+    rpc GetUsers(GetUsersRequest) returns (GetUsersResponse){
+        option (google.api.http) = {
+            get: "/v1/get-users"
+        };
+    }
+
+    rpc UpdateUser(UpdateUserRequest) returns (UpdateUserResponse){
+        option (google.api.http) = {
+            patch: "/v1/update-user/{id}"
+            body: "*"
+        };
+    }
+}
+
+message GetUsersRequest {
+    optional string name = 1;
+    optional uint32 age = 2;
+    optional string email = 3;
+    
+}
+message GetUsersResponse{
+    repeated model.v1.User users = 1;
+}
+
+message UpdateUserRequest{
+    string id = 1; // mapped to URL
+    optional string name = 2; // mapped to BODY
+    optional uint32 age = 3; // mapped to BODY
+    optional string email = 4; // mapped to BODY
+}
+message UpdateUserResponse{
+    model.v1.User user = 1;
+}
