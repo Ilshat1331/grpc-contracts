@@ -5,7 +5,7 @@ package user_service.service.v1;
 import "google/api/annotations.proto";
 import "user_service/model/v1/user.proto";
 
-option go_package = "grpc-server/gen/go/user_service/service/v1;proto_user_service";
+option go_package = "github.com/Ilshat1331/grpc-contracts/gen/go/user_service/service/v1;proto_user_service";
 //option go_package = "github.com"
 
 service UserService{
