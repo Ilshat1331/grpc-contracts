@@ -1,8 +1,8 @@
 version: v1
 managed:
   enabled: true
-  go_package_prefix:
-    default: github.com/Ilshat1331/grpc-contracts/gen
+  # go_package_prefix:
+  #   default: github.com/Ilshat1331/grpc-contracts/gen/go
     # except:
     #   - buf.build/googleapis/googleapis
 
